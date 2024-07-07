@@ -6,7 +6,7 @@ import { StoreService } from 'src/app/services/store.service';
 @Component({
   selector: 'app-ingredients',
   templateUrl: './ingredients.component.html',
-  styleUrls: ['./ingredients.component.css']
+  styleUrls: ['./ingredients.component.scss']
 })
 export class IngredientsComponent implements OnInit {;
   public buns: Ingredient[] = [];

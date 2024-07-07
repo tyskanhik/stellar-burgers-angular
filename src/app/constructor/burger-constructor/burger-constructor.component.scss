@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+.constructor {
+    display: grid;
+    gap: 20px;
+
+    .ingridient {
+        padding: 16px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 88px 88px 88px 88px;
+        background: #2f2f37;
+        min-height: 80px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #f2f2f3;
+        margin-left: 44px;
+    }
+
+    .bun-top {
+        border-radius: 88px 88px 40px 40px;
+    }
+
+    .bun-bottom {
+        border-radius: 40px 40px 88px 88px;
+    }
+
+    .main {
+        overflow-y: scroll;
+        scrollbar-color: #2F2F37 #8585AD;
+        padding-right: 10px;
+    }
+
+    .main-ingridient {
+        margin: 0;
+    }
+
+    .order {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 40px;
+
+        &-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Iceland", sans-serif;
+            font-size: 48px;
+            line-height: 36px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: 64px;
+            background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+            color: white;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: normal;
+            padding: 20px 40px;
+        }
+    }
+}
