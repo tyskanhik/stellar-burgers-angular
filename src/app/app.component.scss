@@ -1,5 +1,5 @@
 .root {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -8,3 +8,7 @@ header {
     background-color: #1c1c21;
 }
 
+main {
+    max-width: 1240px;
+    margin: 0 auto;
+}

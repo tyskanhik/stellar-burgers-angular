@@ -5,6 +5,7 @@ nav {
     margin: 0 auto;
     color: #8585AD;
     align-items: center;
+    padding: 16px;
 
     a {
         color: inherit;
@@ -22,6 +23,10 @@ nav {
             gap: 10px;
             cursor: pointer;
         }
+    }
+
+    .logo {
+        justify-self: center;
     }
 
     .user {

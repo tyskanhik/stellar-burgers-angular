@@ -17,6 +17,10 @@ export type Ingredient = {
     image_mobile: string;
 };
 
+export type ConstructorIngredient = Ingredient & {
+    id: string;
+};
+
 export type ApiIngredients = {
     data: Ingredient[];
     success: boolean;

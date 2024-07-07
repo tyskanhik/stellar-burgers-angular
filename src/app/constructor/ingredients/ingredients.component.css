@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style-type: none;
+    font-size: 16px;
+    border-bottom: 1px solid rgb(170, 135, 135, 0.5);
+
+    li {
+        padding: 16px 40px;
+    }
+
+    a {
+        color: #8585AD;
+        text-decoration: none;
+    }
+}
+
+.ingredients {
+    h3 {
+        margin: 40px 0 24px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+
+    p {
+        text-align: center;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        li {
+            display: grid;
+            justify-content: center;
+            gap: 32px;
+
+            a {
+                position: relative;
+                display: grid;
+                width: 260px;
+                cursor: pointer;
+                text-decoration: none;
+                color: #ffff;
+                gap: 8px;
+                font-size: 16px;
+
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+
+                    p {
+                        font-family: "Iceland", sans-serif;
+                        font-weight: normal;
+                        font-size: 24px;
+                        line-height: .86;
+                    }
+                }
+            }
+        }
+
+        button {
+            cursor: pointer;
+            background-color: inherit;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 260px;
+            justify-content: center;
+            font-size: 16px;
+        }
+    }
+}
