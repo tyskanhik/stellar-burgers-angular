@@ -16,3 +16,8 @@ export type Ingredient = {
     image_large: string;
     image_mobile: string;
 };
+
+export type ApiIngredients = {
+    data: Ingredient[];
+    success: boolean;
+}

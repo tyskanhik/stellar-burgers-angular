@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
-import { Ingredient } from 'src/app/services/api/types/types';
+import { ApiIngredients, Ingredient } from 'src/app/services/api/types/types';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -15,10 +15,14 @@ export class IngredientsComponent implements OnInit {
 
   ngOnInit(): void {
     this._apiService.getIngredients().subscribe(
-      (data: Ingredient[]) => {
-        this.ingredients = data;
+      (data: ApiIngredients) => {
+        this.ingredients = data.data;
         this._storeService.setIngredients(this.ingredients);
       }
     )
+  }
+
+  click() {
+    console.log(this._storeService.getIngredients());
   }
 }

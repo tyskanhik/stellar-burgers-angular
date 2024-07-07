@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ingredient } from './types/types';
+import { ApiIngredients } from './types/types';
 
 @Injectable({
     providedIn: 'root',
@@ -13,7 +13,7 @@ export class ApiService {
 
     constructor(private http: HttpClient) {}
 
-    public getIngredients(): Observable<Ingredient[]> {
-        return this.http.get<Ingredient[]>(`${this.apiUrl}/ingredietns`)
+    public getIngredients(): Observable<ApiIngredients> {
+        return this.http.get<ApiIngredients>(`${this.apiUrl}/ingredients`)
     }
 }
