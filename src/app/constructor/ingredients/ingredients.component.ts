@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
-import { ApiIngredients, ConstructorIngredient, Ingredient } from 'src/app/services/api/types/types';
+import { ApiIngredients, ConstructorIngredient, Ingredient } from 'src/app/services/types/types';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({

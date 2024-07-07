@@ -4,19 +4,19 @@
             <img src="../../assets/constructor.svg" alt="Конструктор">
             <a>Конструктор</a>
         </div>
-        <div  routerLink="/feed">
+        <div routerLink="/feed">
             <img src="../../assets/orderFeed.svg" alt="Лента новостей">
             <a>Лента новостей</a>
         </div>
     </div>
-    <div class="logo" (click)="changeAuth()">
+    <div class="logo">
         <a class="logo__image" routerLink="/">
-            <img src="../../assets/logo.svg" alt="Логотип" >
+            <img src="../../assets/logo.svg" alt="Логотип">
         </a>
     </div>
     <div class="user" (click)="userNavigate()">
-        <img src="../../assets/user.svg" alt="Пользовалель" >
-        <a *ngIf="!isAuth">Личный кабинет</a>
-        <a *ngIf="isAuth">test</a>
+        <img src="../../assets/user.svg" alt="Пользовалель">
+        <a *ngIf="!User?.email">Личный кабинет</a>
+        <a *ngIf="!!User?.email"> {{User?.name}} </a>
     </div>
 </nav>

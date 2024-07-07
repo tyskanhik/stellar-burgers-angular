@@ -1,22 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StoreService } from '../services/store.service';
+import { User } from '../services/types/types';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  public isAuth = false;
+export class HeaderComponent implements OnInit {
+  public User?: User;
 
+  constructor(private router: Router, private _store: StoreService) {}
 
-  constructor(private router: Router) {}
-
-  changeAuth(): void {
-    this.isAuth =! this.isAuth;
+  ngOnInit(): void {
+    this._store.user$.subscribe(user => {
+      this.User = user;
+    });
   }
 
   userNavigate() {
-    this.isAuth? this.router.navigate(['/profile']) : this.router.navigate(['/login']);
+    !this.User?.email ? this.router.navigate(['/login']) : this.router.navigate(['/profile']);
   }
 }

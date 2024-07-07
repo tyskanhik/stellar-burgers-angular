@@ -3,6 +3,23 @@ export interface User {
     name: string;
 }
 
+export const initialStateUser: User = {
+    email: '',
+    name: ''
+}
+
+export type LoginData = { 
+    email: string | null; 
+    password: string | null; 
+};
+
+export type ApiUser = {
+    accessToken: string;
+    refreshToken: string;
+    success: boolean;
+    user: User;
+}
+
 export type Ingredient = {
     _id: string;
     name: string;
