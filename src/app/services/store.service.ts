@@ -33,14 +33,16 @@ export class StoreService {
     }
 
     setConstructorState(ingredient: Ingredient): void {
-        //TODO: создать пайп для добавлении id 
+        const id = self.crypto.randomUUID()
+        const newIngredient = {...ingredient, id}
+        
         if(ingredient.type === 'bun') {
             const currentState = this.constructorSubject.getValue();
-            currentState.bun = ingredient;
+            currentState.bun = newIngredient;
             this.constructorSubject.next(currentState);
         } else {
             const currentState = this.constructorSubject.getValue();
-            currentState.ingredients.push(ingredient);
+            currentState.ingredients.push(newIngredient);
             this.constructorSubject.next(currentState);
         }
     }

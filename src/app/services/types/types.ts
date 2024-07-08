@@ -39,8 +39,8 @@ export type ConstructorIngredient = Ingredient & {
 };
 
 export interface BurgerConstructorState {
-    bun: Ingredient | null;
-    ingredients: Ingredient[];
+    bun: ConstructorIngredient | null;
+    ingredients: ConstructorIngredient[];
 }
 
 export const initailStateBurgerConstructor: BurgerConstructorState = {
