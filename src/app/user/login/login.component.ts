@@ -21,12 +21,11 @@ export class LoginComponent {
 
   public handleSubmit() {
     if (!this.formLogin.valid) {
-      console.log(this.formLogin.value);
+      console.log(this.formLogin.valid);
     } else {
       this._apiService.loginUser(this.formLogin.value).subscribe((data: ApiUser) => {
         this._storeService.setUser(data.user);
         this.router.navigate(['/profile'])
-        console.log('User logged in', data);
       })
     }
   }

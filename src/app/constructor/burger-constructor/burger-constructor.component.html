@@ -1,9 +1,35 @@
-<div class="constructor">
-    <div class="ingridient bun-top">Выберите булки</div>
+<div class="constructor" (click)="click()">
+    <div class="ingridient bun-top">
+        <span *ngIf="!this.burgerConstrucor?.bun">Выберите булки</span>
+        <span class="ingridient-components" *ngIf="!!this.burgerConstrucor?.bun">
+            <img class="ingridient-components-image"  src={{burgerConstrucor?.bun?.image}} alt="Картинка ингредиента">
+            <span class="ingridient-components-text">{{ burgerConstrucor?.bun?.name }} (верх)</span>
+            <span class="ingridient-components-price">
+                {{burgerConstrucor?.bun?.price}}
+                <img src="../../../assets/money.svg">
+            </span>
+            <span class="ingridient-components-locked">
+                <img src="../../../assets/locked.svg">
+            </span>
+        </span>
+    </div>
     <ul class="main">
         <div class="ingridient main-ingridient">выберите начинку</div>
     </ul>
-    <div class="ingridient bun-bottom">Выберите булки</div>
+    <div class="ingridient bun-bottom">
+        <span *ngIf="!this.burgerConstrucor?.bun">Выберите булки</span>
+        <span class="ingridient-components" *ngIf="!!this.burgerConstrucor?.bun">
+            <img class="ingridient-components-image" src={{burgerConstrucor?.bun?.image}} alt="Картинка ингредиента">
+            <span class="ingridient-components-text">{{ burgerConstrucor?.bun?.name }} (низ)</span>
+            <span class="ingridient-components-price">
+                {{burgerConstrucor?.bun?.price}}
+                <img src="../../../assets/money.svg">
+            </span>
+            <span class="ingridient-components-locked">
+                <img src="../../../assets/locked.svg">
+            </span>
+        </span>
+    </div>
     <div class="order">
         <div class="order-price">
             <p>0</p>

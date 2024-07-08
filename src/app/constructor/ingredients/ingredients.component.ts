@@ -28,6 +28,5 @@ export class IngredientsComponent implements OnInit {;
 
   handleIngredientClick(ingredients: Ingredient) {
     this._storeService.setConstructorState(ingredients)
-    console.log(this._storeService.getConstructorState());
   }
 }
