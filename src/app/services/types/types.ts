@@ -8,9 +8,9 @@ export const initialStateUser: User = {
     name: ''
 }
 
-export type LoginData = { 
-    email: string | null; 
-    password: string | null; 
+export type LoginData = {
+    email: string | null;
+    password: string | null;
 };
 
 export type ApiUser = {
@@ -37,6 +37,16 @@ export type Ingredient = {
 export type ConstructorIngredient = Ingredient & {
     id: string;
 };
+
+export interface BurgerConstructorState {
+    bun: Ingredient | null;
+    ingredients: Ingredient[];
+}
+
+export const initailStateBurgerConstructor: BurgerConstructorState = {
+    bun: null,
+    ingredients: []
+}
 
 export type ApiIngredients = {
     data: Ingredient[];

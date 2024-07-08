@@ -18,7 +18,7 @@
                 </div>
                 <p>{{ bun.name }}</p>
             </a>
-            <button>
+            <button (click)="handleIngredientClick(bun)">
                 <img src="../../../assets/add.svg" alt="Добавить">
                 Добавить
             </button>
@@ -35,7 +35,7 @@
                 </div>
                 <p>{{ main.name }}</p>
             </a>
-            <button>
+            <button  (click)="handleIngredientClick(main)">
                 <img src="../../../assets/add.svg" alt="Добавить">
                 Добавить
             </button>
@@ -52,7 +52,7 @@
                 </div>
                 <p>{{ sauce.name }}</p>
             </a>
-            <button>
+            <button (click)="handleIngredientClick(sauce)">
                 <img src="../../../assets/add.svg" alt="Добавить">
                 Добавить
             </button>
