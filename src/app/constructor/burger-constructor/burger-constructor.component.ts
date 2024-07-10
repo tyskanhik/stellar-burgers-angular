@@ -17,8 +17,6 @@ export class BurgerConstructorComponent implements OnInit {
   }
 
   up(index: number) {
-    console.log(this._sotrService.getConstructorState());
-    
     this.burgerConstrucor?.ingredients.splice(
       index - 1,
       2,
@@ -38,10 +36,5 @@ export class BurgerConstructorComponent implements OnInit {
 
   delete(index: number) {
     this.burgerConstrucor?.ingredients.splice(index, 1);
-  }
-
-  sumSalaries() {
-    console.log(!this.burgerConstrucor?.bun);
-    
   }
 }
