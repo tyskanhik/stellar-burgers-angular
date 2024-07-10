@@ -38,6 +38,7 @@
 
             &-price {
                 display: inline-flex;
+                gap: 5px;
                 align-items: center;
                 justify-content: flex-end;
                 text-align: right;
@@ -69,7 +70,50 @@
     .main {
         overflow-y: scroll;
         scrollbar-color: #2F2F37 #8585AD;
+        display: grid;
+        gap: 20px;
         padding-right: 10px;
+
+        &-ingredient {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            list-style-type: none;
+
+
+            &-component {
+                margin-left: 0;
+            }
+        }
+
+        .move_button {
+            display: grid;
+            align-items: center;
+            width: fit-content;
+
+            button {
+                max-height: 24px;
+                padding: 0;
+                margin: 0;
+                background: none;
+                outline: none;
+                border: none;
+                cursor: pointer;
+
+
+                svg {
+                    fill: rgb(255, 255, 255);
+                }
+
+                &:disabled {
+                    cursor: default;
+
+                    svg {
+                        fill: rgb(58, 58, 85);
+                    }
+                }
+            }
+        }
     }
 
     .main-ingridient {

@@ -16,8 +16,27 @@ export class BurgerConstructorComponent implements OnInit {
     this._sotrService.constructor$.subscribe(item => this.burgerConstrucor = item)
   }
 
-  click() {
-    console.log(!this.burgerConstrucor?.bun);
+  up(index: number) {
+    console.log(this._sotrService.getConstructorState());
     
+    this.burgerConstrucor?.ingredients.splice(
+      index - 1,
+      2,
+      this.burgerConstrucor?.ingredients[index],
+      this.burgerConstrucor?.ingredients[index - 1]
+    );
+  }
+
+  down(index: number) {
+    this.burgerConstrucor?.ingredients.splice(
+      index,
+      2,
+      this.burgerConstrucor?.ingredients[index + 1],
+      this.burgerConstrucor?.ingredients[index]
+    );
+  }
+
+  delete(index: number) {
+    this.burgerConstrucor?.ingredients.splice(index, 1);
   }
 }
