@@ -1,4 +1,4 @@
-<div class="constructor">
+<div class="constructor" (click)="sumSalaries()">
     <div class="ingridient bun-top">
         <span *ngIf="!this.burgerConstrucor?.bun">Выберите булки</span>
         <span class="ingridient-components" *ngIf="!!this.burgerConstrucor?.bun">
@@ -71,7 +71,7 @@
     </div>
     <div class="order">
         <div class="order-price">
-            <p>0</p>
+            <p>{{burgerConstrucor | totalPrice}}</p>
             <img src="../../../assets/money.svg">
         </div>
         <button>Оформить заказ</button>

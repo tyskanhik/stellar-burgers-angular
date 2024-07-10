@@ -39,4 +39,9 @@ export class BurgerConstructorComponent implements OnInit {
   delete(index: number) {
     this.burgerConstrucor?.ingredients.splice(index, 1);
   }
+
+  sumSalaries() {
+    console.log(!this.burgerConstrucor?.bun);
+    
+  }
 }

@@ -13,6 +13,7 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TotalPricePipe } from './services/pipe/total-price.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     IngredientsComponent,
     BurgerConstructorComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    TotalPricePipe
   ],
   imports: [
     BrowserModule,
