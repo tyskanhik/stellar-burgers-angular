@@ -1,15 +1,18 @@
-<div>
-    <h3>Вход</h3>
-    <form name="login" (submit)="handleSubmit()" [formGroup]="formLogin">
-        <div>
+<div class="login">
+    <h3 class="login-title">Вход</h3>
+    <form name="login" (submit)="handleSubmit()" [formGroup]="formLogin" class="login__form">
+        <div class="login__form-email login__form-input">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required autocapitalize="email" formControlName="email">
+            <small *ngIf="!formLogin.controls.email.valid && formLogin.controls.email.touched">Это поле обязательно для заполнения</small>
         </div>
-        <div>
+        <div class="login__form-password login__form-input">
             <label for="password">Пароль:</label>
             <input type="password" id="password" name="password" required autocapitalize="password"
                 formControlName="password">
+            <small *ngIf="!formLogin.controls.password.valid && formLogin.controls.password.touched">Это поле обязательно для заполнения</small>
+            <small *ngIf="false">неверный email или пароль</small>
         </div>
-        <button type="submit">Войти</button>
+        <button type="submit" [disabled]="!formLogin.valid">Войти</button>
     </form>
 </div>

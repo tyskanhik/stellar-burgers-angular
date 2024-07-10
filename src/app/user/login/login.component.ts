@@ -8,14 +8,14 @@ import { ApiUser } from 'src/app/services/types/types';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   
   constructor(private _apiService: ApiService, private _storeService: StoreService, private router: Router) { }
 
   public formLogin = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   })
 

@@ -11,4 +11,7 @@ header {
 main {
     max-width: 1240px;
     margin: 0 auto;
+    flex-grow: 1;
+    display: grid;
+    align-content: center;
 }
