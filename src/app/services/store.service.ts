@@ -17,6 +17,9 @@ export class StoreService {
     user$ = this.userSubject.asObservable();
     isLoget = false;
 
+    private orderUserSubject = new BehaviorSubject({})
+    orderUser$ = this.orderUserSubject.asObservable();
+
     setIngredients(ingredietns: Ingredient[]): void {
         this.ingredientsSubject.next(ingredietns);
     }
@@ -32,6 +35,11 @@ export class StoreService {
 
     getUser(): User {
         return this.userSubject.getValue();
+    }
+
+    logautUser() {
+        this.userSubject.next(initialStateUser);
+        this.isLoget = false;
     }
 
     setConstructorState(ingredient: Ingredient): void {
@@ -51,5 +59,13 @@ export class StoreService {
 
     getConstructorState(): BurgerConstructorState {
         return this.constructorSubject.getValue();
+    }
+
+    setOrderUser(order: any): void {
+        this.orderUserSubject.next(order);
+    }
+    
+    getOrderUser(): any {
+        return this.orderUserSubject.getValue();
     }
 }

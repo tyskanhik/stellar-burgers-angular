@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { error } from 'cypress/types/jquery';
 import { ApiService } from 'src/app/services/api/api.service';
+import { setCookie } from 'src/app/services/api/cookie';
 import { StoreService } from 'src/app/services/store.service';
 import { ApiUser } from 'src/app/services/types/types';
 
@@ -29,7 +30,7 @@ export class LoginComponent {
         .subscribe({
           next: (data: ApiUser) => {
             this._storeService.setUser(data.user);
-
+            setCookie('accessToken', data.accessToken)
             this.router.navigate(['/profile'])
           },
           error: error => this.errorUser = !error.ok

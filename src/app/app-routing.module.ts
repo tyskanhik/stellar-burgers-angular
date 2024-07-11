@@ -9,10 +9,11 @@ import { isNotAuthGuard } from './guards/is-not-auth.guard';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 
 const routes: Routes = [
-  { path: '', component: ConstructorComponent, canActivate: [isAuthGuard] },
+  { path: '', component: ConstructorComponent},
   { path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard] },
   {
     path: 'profile', component: ProfileComponent,
+    canActivate: [isAuthGuard],
     children: [
       {
         path: 'order',

@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { ApiIngredients, ApiUser, LoginData } from '../types/types';
 
 @Injectable({
@@ -19,5 +19,14 @@ export class ApiService {
 
     public loginUser(user: Partial<LoginData>): Observable<ApiUser>  {
         return this.http.post<ApiUser>(`${this.apiUrl}/auth/login`, user)
+    }
+
+    public getOrderUser(token: string | undefined): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}/orders`, {
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                authorization: token || ''
+            }
+        })
     }
 }
