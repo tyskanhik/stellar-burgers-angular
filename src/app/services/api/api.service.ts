@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ApiIngredients, ApiUser, LoginData } from '../types/types';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class ApiService {
         return this.http.get<ApiIngredients>(`${this.apiUrl}/ingredients`)
     }
 
-    public loginUser(user: Partial<LoginData>): Observable<ApiUser> {
+    public loginUser(user: Partial<LoginData>): Observable<ApiUser>  {
         return this.http.post<ApiUser>(`${this.apiUrl}/auth/login`, user)
     }
 }

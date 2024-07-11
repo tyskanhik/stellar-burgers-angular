@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { error } from 'cypress/types/jquery';
 import { ApiService } from 'src/app/services/api/api.service';
 import { StoreService } from 'src/app/services/store.service';
 import { ApiUser } from 'src/app/services/types/types';
@@ -11,7 +12,8 @@ import { ApiUser } from 'src/app/services/types/types';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  
+  protected errorUser: boolean = false; 
+
   constructor(private _apiService: ApiService, private _storeService: StoreService, private router: Router) { }
 
   public formLogin = new FormGroup({
@@ -23,10 +25,15 @@ export class LoginComponent {
     if (!this.formLogin.valid) {
       console.log(this.formLogin.valid);
     } else {
-      this._apiService.loginUser(this.formLogin.value).subscribe((data: ApiUser) => {
-        this._storeService.setUser(data.user);
-        this.router.navigate(['/profile'])
-      })
+      this._apiService.loginUser(this.formLogin.value)
+        .subscribe({
+          next: (data: ApiUser) => {
+            this._storeService.setUser(data.user);
+
+            this.router.navigate(['/profile'])
+          },
+          error: error => this.errorUser = !error.ok
+        })
     }
   }
 }
