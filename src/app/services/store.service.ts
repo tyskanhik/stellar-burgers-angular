@@ -20,6 +20,9 @@ export class StoreService {
     private orderUserSubject = new BehaviorSubject({})
     orderUser$ = this.orderUserSubject.asObservable();
 
+    private feedsSubject = new BehaviorSubject<any>([]);
+    feeds$ = this.feedsSubject.asObservable;
+
     setIngredients(ingredietns: Ingredient[]): void {
         this.ingredientsSubject.next(ingredietns);
     }
@@ -67,5 +70,13 @@ export class StoreService {
     
     getOrderUser(): any {
         return this.orderUserSubject.getValue();
+    }
+
+    setFeeds(feed: any): void {
+        this.feedsSubject.next(feed);
+    }
+
+    getFeeds(): any {
+        return this.feedsSubject.getValue();
     }
 }

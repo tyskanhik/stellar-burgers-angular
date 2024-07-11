@@ -21,6 +21,7 @@ export class ApiService {
         return this.http.post<ApiUser>(`${this.apiUrl}/auth/login`, user)
     }
 
+    //TODO: create types
     public getOrderUser(token: string | undefined): Observable<any> {
         return this.http.get<any>(`${this.apiUrl}/orders`, {
             headers: {
@@ -28,5 +29,10 @@ export class ApiService {
                 authorization: token || ''
             }
         })
+    }
+
+    //TODO: create types
+    public getFeeds(): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}/orders/all`)
     }
 }
