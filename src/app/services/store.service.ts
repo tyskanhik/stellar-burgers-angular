@@ -15,6 +15,7 @@ export class StoreService {
 
     private userSubject = new BehaviorSubject<User>(initialStateUser)
     user$ = this.userSubject.asObservable();
+    isLoget = false;
 
     setIngredients(ingredietns: Ingredient[]): void {
         this.ingredientsSubject.next(ingredietns);
@@ -26,6 +27,7 @@ export class StoreService {
 
     setUser(user: User): void {
         this.userSubject.next(user);
+        this.isLoget = true;
     }
 
     getUser(): User {

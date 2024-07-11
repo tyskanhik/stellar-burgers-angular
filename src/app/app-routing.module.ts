@@ -4,12 +4,14 @@ import { ConstructorComponent } from './constructor/constructor.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
+import { isAuthGuard } from './guards/is-auth.guard';
+import { isNotAuthGuard } from './guards/is-not-auth.guard';
 
 const routes: Routes = [
-  { path: '', component: ConstructorComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'feed', component: FeedComponent}
+  { path: '', component: ConstructorComponent },
+  { path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [isAuthGuard] },
+  { path: 'feed', component: FeedComponent }
 ];
 
 @NgModule({
