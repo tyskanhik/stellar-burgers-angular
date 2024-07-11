@@ -1,1 +1,11 @@
-<p>profile works!</p>
+<div class="profile">
+    <nav>
+        <ul>
+            <li routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]='{ exact: true }'>Профиль</li>
+            <li routerLink="order" routerLinkActive="active">История заказов</li>
+            <li>Выход</li>
+        </ul>
+    </nav>
+    
+    <router-outlet></router-outlet>
+</div>

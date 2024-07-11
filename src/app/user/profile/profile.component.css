@@ -1,0 +1,19 @@
+.profile {
+    display: grid;
+    gap: 50px;
+}
+
+nav {
+    color: #8585ad;
+    font-size: 26px;
+
+    li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+    
+    .active {
+        color: white;
+        cursor: default;
+    }
+}

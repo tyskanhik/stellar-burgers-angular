@@ -6,11 +6,21 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
 import { isAuthGuard } from './guards/is-auth.guard';
 import { isNotAuthGuard } from './guards/is-not-auth.guard';
+import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 
 const routes: Routes = [
-  { path: '', component: ConstructorComponent },
+  { path: '', component: ConstructorComponent, canActivate: [isAuthGuard] },
   { path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [isAuthGuard] },
+  {
+    path: 'profile', component: ProfileComponent,
+    children: [
+      {
+        path: 'order',
+        component: ProfileOrderComponent,
+        canActivate: [isAuthGuard]
+      }
+    ]
+  },
   { path: 'feed', component: FeedComponent }
 ];
 
