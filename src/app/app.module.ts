@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TotalPricePipe } from './services/pipe/total-price.pipe';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
+import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProfileOrderComponent } from './user/profile/profile-order/profile-orde
     LoginComponent,
     ProfileComponent,
     TotalPricePipe,
-    ProfileOrderComponent
+    ProfileOrderComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,

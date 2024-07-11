@@ -7,6 +7,7 @@ import { FeedComponent } from './feed/feed.component';
 import { isAuthGuard } from './guards/is-auth.guard';
 import { isNotAuthGuard } from './guards/is-not-auth.guard';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
+import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
 
 const routes: Routes = [
   { path: '', component: ConstructorComponent},
@@ -15,6 +16,11 @@ const routes: Routes = [
     path: 'profile', component: ProfileComponent,
     canActivate: [isAuthGuard],
     children: [
+      {
+        path: '',
+        component: ProfileFormComponent,
+        canActivate: [isAuthGuard]
+      },
       {
         path: 'order',
         component: ProfileOrderComponent,
