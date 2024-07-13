@@ -29,7 +29,8 @@ export class HeaderComponent implements OnInit {
     !this.User?.email ? this.router.navigate(['/login']) : this.router.navigate(['/profile']);
   }
 
+  a = true;
   log() {
-    this._cookie.setCookie('acces', 'fgfgghufhgufdgfdfguhdfu')
+
   }
 }
