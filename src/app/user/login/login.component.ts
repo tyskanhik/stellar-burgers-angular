@@ -30,7 +30,8 @@ export class LoginComponent {
         .subscribe({
           next: (data: ApiUser) => {
             this._storeService.setUser(data.user);
-            setCookie('accessToken', data.accessToken)
+            setCookie('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken)
             this.router.navigate(['/profile'])
           },
           error: error => this.errorUser = !error.ok

@@ -1,15 +1,30 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { StoreService } from '../services/store.service';
+import { CookieService } from '../services/token/cookie.services';
+import { ApiService } from '../services/api/api.service';
+import { BehaviorSubject } from 'rxjs';
 
 export const isAuthGuard: CanActivateFn = (route, state) => {
-  const storeService = inject(StoreService);
+  const cookie = inject(CookieService);
+  const api = inject(ApiService)
   const router = inject(Router);
-  
-  if (storeService.isLoget) {
-    return storeService.isLoget
+
+  if (cookie.getCookie('accessToken')) {
+    return true;
   } else {
-    router.navigateByUrl('/login');
-    return storeService.isLoget
+
+    api.refreshToken().subscribe({
+      next: data => {
+        cookie.setCookie('accessToken', data.accessToken);
+        localStorage.setItem('refreshToken', data.refreshToken);
+        return true
+      },
+      error: error => {
+        console.error('Error:', error);
+        router.navigate(['/login']);
+        return false;
+      }
+    })
   }
+  return false;
 };

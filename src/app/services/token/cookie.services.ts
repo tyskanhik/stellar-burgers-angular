@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { any } from "cypress/types/bluebird";
 
 interface CookieOptions {
     expires?: number | Date | string;

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StoreService } from '../services/store.service';
 import { User } from '../services/types/types';
-import { getCookie } from '../services/token/cookie';
-import { CookieService } from '../services/token/cookie.services';
+
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router, 
     private _store: StoreService, 
-    private _cookie: CookieService
+    private _api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -27,10 +27,5 @@ export class HeaderComponent implements OnInit {
 
   userNavigate() {
     !this.User?.email ? this.router.navigate(['/login']) : this.router.navigate(['/profile']);
-  }
-
-  a = true;
-  log() {
-
   }
 }

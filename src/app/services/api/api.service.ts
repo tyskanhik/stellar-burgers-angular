@@ -11,21 +11,34 @@ import { ApiIngredients, ApiUser, LoginData } from '../types/types';
 export class ApiService {
     private readonly apiUrl = 'https://norma.nomoreparties.space/api'
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     public getIngredients(): Observable<ApiIngredients> {
         return this.http.get<ApiIngredients>(`${this.apiUrl}/ingredients`)
     }
 
-    public loginUser(user: Partial<LoginData>): Observable<ApiUser>  {
+    public loginUser(user: Partial<LoginData>): Observable<ApiUser> {
         return this.http.post<ApiUser>(`${this.apiUrl}/auth/login`, user)
     }
 
+    // TODO: create interfase
     public getOrderUser(token: string | undefined): Observable<any> {
         return this.http.get<any>(`${this.apiUrl}/orders`, {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 authorization: token || ''
+            }
+        })
+    }
+
+    // TODO: create interfase
+    public refreshToken(): Observable<any> {
+        const body = JSON.stringify({
+            token: localStorage.getItem('refreshToken')
+        })
+        return this.http.post<any>(`${this.apiUrl}/auth/token`, body, {
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
             }
         })
     }

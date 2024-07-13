@@ -31,8 +31,6 @@ export function setCookie(
     const d = new Date();
     d.setTime(d.getTime() + exp * 1000);
     exp = props.expires = d;
-    console.log(exp);
-    
   }
 
   if (exp && exp instanceof Date) {
@@ -47,7 +45,6 @@ export function setCookie(
       updatedCookie += '=' + propValue;
     }
   }
-  console.log(updatedCookie);
   
   document.cookie = updatedCookie;
 }
