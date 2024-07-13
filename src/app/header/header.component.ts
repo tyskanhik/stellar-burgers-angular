@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { StoreService } from '../services/store.service';
 import { User } from '../services/types/types';
 
-import { ApiService } from '../services/api/api.service';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,8 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router, 
-    private _store: StoreService, 
-    private _api: ApiService
+    private _store: StoreService
   ) { }
 
   ngOnInit(): void {
