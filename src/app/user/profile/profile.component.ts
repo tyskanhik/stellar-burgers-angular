@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { deleteCookie } from 'src/app/services/api/cookie';
+import { deleteCookie, getCookie } from 'src/app/services/token/cookie';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({

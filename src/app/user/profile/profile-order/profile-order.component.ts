@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
-import { getCookie } from 'src/app/services/api/cookie';
+import { getCookie } from 'src/app/services/token/cookie';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({

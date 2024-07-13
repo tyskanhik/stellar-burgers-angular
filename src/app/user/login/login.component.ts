@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { error } from 'cypress/types/jquery';
 import { ApiService } from 'src/app/services/api/api.service';
-import { setCookie } from 'src/app/services/api/cookie';
+import { setCookie } from 'src/app/services/token/cookie';
 import { StoreService } from 'src/app/services/store.service';
 import { ApiUser } from 'src/app/services/types/types';
 
