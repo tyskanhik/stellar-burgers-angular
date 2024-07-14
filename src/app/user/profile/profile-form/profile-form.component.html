@@ -1,10 +1,29 @@
-<div class="form">
-    <form>
-        <label>Имя</label>
-        <input type="text">
-        <label>E-mail</label>
-        <input type="email">
-        <label>Пароль</label>
-        <input type="password">
+<div class="container">
+    <form [formGroup]="formProfile" class="container__form">
+        <div class="form-name form">
+            <label for="name">Имя</label>
+            <input id="name" type="text" formControlName="name">
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-email form">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" formControlName="email">
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-password form">
+            <label for="password">Пароль</label>
+            <input id="password" type="password" formControlName="password">
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-submit">
+            <button type="reset">Отменить</button>
+            <button type="submit">Сохранить</button>
+        </div>
     </form>
 </div>
