@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'cypress/types/jquery';
 import { ApiService } from 'src/app/services/api/api.service';
-import { setCookie } from 'src/app/services/token/cookie';
+import { CookieService } from 'src/app/services/cookie.services';
 import { StoreService } from 'src/app/services/store.service';
 import { ApiUser } from 'src/app/services/types/types';
 
@@ -15,7 +14,12 @@ import { ApiUser } from 'src/app/services/types/types';
 export class LoginComponent {
   protected errorUser: boolean = false; 
 
-  constructor(private _apiService: ApiService, private _storeService: StoreService, private router: Router) { }
+  constructor(
+    private _apiService: ApiService, 
+    private _storeService: StoreService, 
+    private router: Router,
+    private cookie: CookieService
+  ) { }
 
   public formLogin = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -30,7 +34,7 @@ export class LoginComponent {
         .subscribe({
           next: (data: ApiUser) => {
             this._storeService.setUser(data.user);
-            setCookie('accessToken', data.accessToken);
+            this.cookie.setCookie('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken)
             this.router.navigate(['/profile'])
           },

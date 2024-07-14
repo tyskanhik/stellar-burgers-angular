@@ -1,8 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { CookieService } from '../services/token/cookie.services';
+import { CookieService } from '../services/cookie.services';
 import { ApiService } from '../services/api/api.service';
-import { BehaviorSubject } from 'rxjs';
 
 export const isAuthGuard: CanActivateFn = (route, state) => {
   const cookie = inject(CookieService);

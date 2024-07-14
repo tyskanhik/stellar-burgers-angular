@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { deleteCookie, getCookie } from 'src/app/services/token/cookie';
+import { CookieService } from 'src/app/services/cookie.services';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -10,11 +10,12 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class ProfileComponent {
 
-  constructor(private _storeservices: StoreService, private router: Router) { }
+  constructor(private _storeservices: StoreService, private router: Router, private cookie: CookieService) { }
 
   logaut() {
     this._storeservices.logautUser();
-    deleteCookie('accessToken');
+    this.cookie.deleteCookie('accessToken');
+    localStorage.removeItem('refreshToken');
     this.router.navigate(['/login']);
   }
 }
