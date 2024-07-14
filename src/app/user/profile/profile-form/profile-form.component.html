@@ -1,8 +1,8 @@
 <div class="container">
-    <form [formGroup]="formProfile" class="container__form">
+    <form [formGroup]="formProfile" class="container__form" (keyup)="input($event)">
         <div class="form-name form">
             <label for="name">Имя</label>
-            <input id="name" type="text" formControlName="name">
+            <input id="name" type="text" formControlName="name" >
             <div class="image">
                 <img src="../../../../assets/edit.svg" alt="Редактировать">
             </div>
@@ -21,9 +21,9 @@
                 <img src="../../../../assets/edit.svg" alt="Редактировать">
             </div>
         </div>
-        <div class="form-submit">
-            <button type="reset">Отменить</button>
-            <button type="submit">Сохранить</button>
+        <div class="form-button" *ngIf="isUser">
+            <button type="reset" class="form-button-reset button" (click)="reset()">Отменить</button>
+            <button type="submit" class="form-button-submit button">Сохранить</button>
         </div>
     </form>
 </div>

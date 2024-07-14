@@ -46,5 +46,35 @@
             text-align: left;
             color: #8585AD;
         }
+
+        &-button {
+            width: 100%;
+            text-align: right;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: normal;
+            padding: 16px 40px;
+            
+            .button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: normal;
+                padding: 16px 40px;
+            }
+
+            &-reset {
+                color: #4c4cff;
+                background: transparent;
+            }
+
+            &-submit {
+                color: white;
+                background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+                border-radius: 64px;
+            }
+        }
     }
 }
