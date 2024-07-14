@@ -36,4 +36,9 @@ nav {
         justify-self: flex-end;
         cursor: pointer;
     }
+
+    .active {
+        color: white;
+        cursor: default;
+    }
 }

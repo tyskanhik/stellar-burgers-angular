@@ -1,10 +1,10 @@
 <nav>
     <div class="constructor">
-        <div routerLink="/">
+        <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]='{ exact: true }'>
             <img src="../../assets/constructor.svg" alt="Конструктор">
             <a>Конструктор</a>
         </div>
-        <div routerLink="/feed">
+        <div routerLink="/feed" routerLinkActive="active">
             <img src="../../assets/orderFeed.svg" alt="Лента новостей">
             <a>Лента новостей</a>
         </div>
@@ -14,7 +14,7 @@
             <img src="../../assets/logo.svg" alt="Логотип">
         </a>
     </div>
-    <div class="user" (click)="userNavigate()">
+    <div class="user" (click)="userNavigate()" >
         <img src="../../assets/user.svg" alt="Пользовалель">
         <a *ngIf="!User?.email">Личный кабинет</a>
         <a *ngIf="!!User?.email"> {{User?.name}} </a>
