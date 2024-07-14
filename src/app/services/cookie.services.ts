@@ -49,8 +49,8 @@ export class CookieService {
         this.setCookie(name, '', { expires: 1 })
     }
 
-    public getCookie(name: string): string | null {
+    public getCookie(name: string): string {
         const cookieValue = document.cookie.match('(^|;)?' + name + '=([^;]*)(;|$)');
-        return cookieValue? decodeURIComponent(cookieValue[2]) : null;
+        return cookieValue? decodeURIComponent(cookieValue[2]) : '';
     }
 }

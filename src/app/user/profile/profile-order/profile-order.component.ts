@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api/api.service';
-import { getCookie } from 'src/app/services/token/cookie';
+import { CookieService } from 'src/app/services/cookie.services';
 import { StoreService } from 'src/app/services/store.service';
 
 @Component({
@@ -10,10 +10,14 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class ProfileOrderComponent implements OnInit {
   protected orders: any[] = []
-  constructor(private _apiServices: ApiService, private _storeservices: StoreService) { }
+  constructor(
+    private _apiServices: ApiService, 
+    private _storeservices: StoreService,
+    private cookie: CookieService
+  ) { }
 
   ngOnInit(): void {
-    this._apiServices.getOrderUser(getCookie('accessToken')).subscribe({
+    this._apiServices.getOrderUser(this.cookie.getCookie('accessToken')).subscribe({
       next: (orders) => {
         this._storeservices.setOrderUser(orders.orders),
         this.orders = orders.orders
