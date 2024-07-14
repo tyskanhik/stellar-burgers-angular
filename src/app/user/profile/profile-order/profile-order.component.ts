@@ -9,6 +9,7 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./profile-order.component.scss']
 })
 export class ProfileOrderComponent implements OnInit {
+  protected isOrders: boolean = false;
   protected orders: any[] = []
   constructor(
     private _apiServices: ApiService, 
@@ -20,9 +21,8 @@ export class ProfileOrderComponent implements OnInit {
     this._apiServices.getOrderUser(this.cookie.getCookie('accessToken')).subscribe({
       next: (orders) => {
         this._storeservices.setOrderUser(orders.orders),
-        this.orders = orders.orders
-        console.log(orders);
-        
+        this.orders = orders.orders,
+        this.isOrders = true
       },
       error: (error) => console.error('Error:', error)
     })
