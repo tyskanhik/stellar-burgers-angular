@@ -1,16 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ApiService } from 'src/app/services/api/api.service';
 import { StoreService } from 'src/app/services/store.service';
+import { ApiUser } from 'src/app/services/types/types';
 
 @Component({
   selector: 'app-profile-form',
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss']
 })
+
 export class ProfileFormComponent {
   protected isUser: boolean = false;
 
-  constructor(private store: StoreService) { }
+  constructor(private store: StoreService, private api: ApiService) {
+    this.loadData();
+   }
+
+  loadData() {
+    this.api.getUserApi().subscribe({
+      next: (data: ApiUser) => {
+        this.store.setUser({...data.user, isLoget: true});
+        this.formProfile.reset({
+          name: data.user.name,
+          email: data.user.email,
+          password: ''
+        })
+        this.isUser = false;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
+  }
 
   public formProfile = new FormGroup({
     name: new FormControl(this.store.getUser().name),
