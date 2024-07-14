@@ -6,10 +6,5 @@ export const isNotAuthGuard: CanActivateFn = (route, state) => {
   const storeService = inject(StoreService);
   const router = inject(Router);
   
-  if (!storeService.isLoget) {
-    return true
-  } else {
-    router.navigateByUrl('/');
-    return false
-  }
+  return true
 };

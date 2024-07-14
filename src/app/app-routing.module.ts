@@ -11,20 +11,17 @@ import { ProfileFormComponent } from './user/profile/profile-form/profile-form.c
 
 const routes: Routes = [
   { path: '', component: ConstructorComponent},
-  { path: 'login', component: LoginComponent, canActivate: [isNotAuthGuard] },
+  { path: 'login', component: LoginComponent},
   {
     path: 'profile', component: ProfileComponent,
-    canActivate: [isAuthGuard],
     children: [
       {
         path: '',
-        component: ProfileFormComponent,
-        canActivate: [isAuthGuard]
+        component: ProfileFormComponent
       },
       {
         path: 'order',
-        component: ProfileOrderComponent,
-        canActivate: [isAuthGuard]
+        component: ProfileOrderComponent
       }
     ]
   },

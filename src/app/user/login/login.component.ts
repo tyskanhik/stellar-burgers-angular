@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api/api.service';
 import { CookieService } from 'src/app/services/cookie.services';
 import { StoreService } from 'src/app/services/store.service';
-import { ApiUser } from 'src/app/services/types/types';
+import { ApiUserToken } from 'src/app/services/types/types';
 
 @Component({
   selector: 'app-login',
@@ -32,8 +32,8 @@ export class LoginComponent {
     } else {
       this._apiService.loginUser(this.formLogin.value)
         .subscribe({
-          next: (data: ApiUser) => {
-            this._storeService.setUser(data.user);
+          next: (data: ApiUserToken) => {
+            this._storeService.setUser({...data.user, isLoget: true});
             this.cookie.setCookie('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken)
             this.router.navigate(['/profile'])

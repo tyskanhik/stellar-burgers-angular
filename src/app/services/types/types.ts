@@ -1,11 +1,13 @@
 export interface User {
     email: string;
     name: string;
+    isLoget: boolean;
 }
 
 export const initialStateUser: User = {
     email: '',
-    name: ''
+    name: '',
+    isLoget: false
 }
 
 export type LoginData = {
@@ -14,10 +16,13 @@ export type LoginData = {
 };
 
 export type ApiUser = {
-    accessToken: string;
-    refreshToken: string;
     success: boolean;
     user: User;
+}
+
+export type ApiUserToken = ApiUser & {
+    accessToken: string;
+    refreshToken: string;
 }
 
 export type Ingredient = {
