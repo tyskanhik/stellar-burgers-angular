@@ -7,20 +7,6 @@ import { StoreService } from '../services/store.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit {
-  protected feeds: any[] = []
-  constructor(private _apiService: ApiService, private _storeService: StoreService) {}
+export class FeedComponent {
 
-  ngOnInit(): void {
-    this._apiService.getFeeds().subscribe({
-      next: (feeds) => {
-        this._storeService.setFeeds(feeds.orders);
-        this.feeds = feeds.orders
-      }
-    });
-  }
-
-  log() {
-    console.log(this.feeds);
-  }
 }
