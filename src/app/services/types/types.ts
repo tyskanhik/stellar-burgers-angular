@@ -52,3 +52,24 @@ export type ApiIngredients = {
     data: Ingredient[];
     success: boolean;
 }
+
+export type Order = {
+    _id: string;
+    status: string;
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+    number: number;
+    ingredients: string[];
+  };
+
+export type Orders = {
+    orders: Order[];
+    total: number;
+    totalToday: number;
+}
+
+export type RefreshResponse = {
+    refreshToken: string;
+    accessToken: string;
+};

@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
-import { ApiIngredients, ApiUser, LoginData } from '../types/types';
+import { ApiIngredients, ApiUser, LoginData, Orders, RefreshResponse } from '../types/types';
 
 @Injectable({
     providedIn: 'root',
@@ -21,9 +21,8 @@ export class ApiService {
         return this.http.post<ApiUser>(`${this.apiUrl}/auth/login`, user)
     }
 
-    // TODO: create interfase
-    public getOrderUser(token: string | undefined): Observable<any> {
-        return this.http.get<any>(`${this.apiUrl}/orders`, {
+    public getOrderUser(token: string | undefined): Observable<Orders> {
+        return this.http.get<Orders>(`${this.apiUrl}/orders`, {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 authorization: token || ''
@@ -31,12 +30,11 @@ export class ApiService {
         })
     }
 
-    // TODO: create interfase
-    public refreshToken(): Observable<any> {
+    public refreshToken(): Observable<RefreshResponse> {
         const body = JSON.stringify({
             token: localStorage.getItem('refreshToken')
         })
-        return this.http.post<any>(`${this.apiUrl}/auth/token`, body, {
+        return this.http.post<RefreshResponse>(`${this.apiUrl}/auth/token`, body, {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             }

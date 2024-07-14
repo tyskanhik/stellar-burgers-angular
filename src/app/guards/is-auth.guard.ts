@@ -11,7 +11,6 @@ export const isAuthGuard: CanActivateFn = (route, state) => {
   if (cookie.getCookie('accessToken')) {
     return true;
   } else {
-
     api.refreshToken().subscribe({
       next: data => {
         cookie.setCookie('accessToken', data.accessToken);

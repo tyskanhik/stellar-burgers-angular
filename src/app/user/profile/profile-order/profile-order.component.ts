@@ -21,6 +21,8 @@ export class ProfileOrderComponent implements OnInit {
       next: (orders) => {
         this._storeservices.setOrderUser(orders.orders),
         this.orders = orders.orders
+        console.log(orders);
+        
       },
       error: (error) => console.error('Error:', error)
     })
