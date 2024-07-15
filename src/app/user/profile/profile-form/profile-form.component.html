@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="formProfile" class="container__form" (keyup)="input($event)">
+    <form [formGroup]="formProfile" class="container__form" (keyup)="input($event)" (submit)="handleSubmit()">
         <div class="form-name form">
             <label for="name">Имя</label>
             <input id="name" type="text" formControlName="name" >

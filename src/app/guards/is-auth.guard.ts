@@ -8,7 +8,7 @@ export const isAuthGuard: CanActivateFn = (route, state) => {
   const api = inject(ApiService)
   const router = inject(Router);
 
-  if (cookie.getCookie('accessToken')) {
+  if (!!cookie.getCookie('accessToken')) {
     return true;
   } else {
     api.refreshToken().subscribe({

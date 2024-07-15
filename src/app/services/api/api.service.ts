@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, retry } from 'rxjs';
-import { ApiIngredients, ApiUser, ApiUserToken, LoginData, Orders, RefreshResponse } from '../types/types';
+import { ApiIngredients, ApiUser, ApiUserToken, LoginData, Orders, RefreshResponse, RegisterUser } from '../types/types';
 import { CookieService } from '../cookie.services';
 
 @Injectable({
@@ -35,6 +35,15 @@ export class ApiService {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
                 authorization: token || ''
+            }
+        })
+    }
+
+    public updateUserApi(user: Partial<RegisterUser>): Observable<ApiUserToken> {
+        return this.http.patch<ApiUserToken>(`${this.apiUrl}/auth/user`, user, {
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                authorization: this.cookie.getCookie('accessToken')
             }
         })
     }

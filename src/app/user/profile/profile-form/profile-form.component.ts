@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api/api.service';
 import { StoreService } from 'src/app/services/store.service';
-import { ApiUser } from 'src/app/services/types/types';
+import { ApiUser, ApiUserToken, RegisterUser } from 'src/app/services/types/types';
 
 @Component({
   selector: 'app-profile-form',
@@ -15,12 +15,12 @@ export class ProfileFormComponent {
 
   constructor(private store: StoreService, private api: ApiService) {
     this.loadData();
-   }
+  }
 
   loadData() {
     this.api.getUserApi().subscribe({
       next: (data: ApiUser) => {
-        this.store.setUser({...data.user, isLoget: true});
+        this.store.setUser({ ...data.user, isLoget: true });
         this.formProfile.reset({
           name: data.user.name,
           email: data.user.email,
@@ -35,8 +35,8 @@ export class ProfileFormComponent {
   }
 
   public formProfile = new FormGroup({
-    name: new FormControl(this.store.getUser().name),
-    email: new FormControl(this.store.getUser().email),
+    name: new FormControl(this.store.getUser().name, [Validators.required]),
+    email: new FormControl(this.store.getUser().email, [Validators.required]),
     password: new FormControl('')
   })
 
@@ -62,5 +62,21 @@ export class ProfileFormComponent {
       password: ''
     })
     this.isUser = false;
+  }
+
+  handleSubmit() {
+    this.api.updateUserApi(this.formProfile.value)
+      .subscribe({
+        next: (data: ApiUserToken) => {
+          this.store.setUser({ ...data.user, isLoget: true });
+          this.formProfile.reset({
+            name: data.user.name,
+            email: data.user.email,
+            password: ''
+          })
+          this.isUser = false;
+        },
+        error: error => console.log(error)
+      })
   }
 }

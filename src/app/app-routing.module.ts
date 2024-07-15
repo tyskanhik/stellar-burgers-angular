@@ -21,7 +21,8 @@ const routes: Routes = [
       },
       {
         path: 'order',
-        component: ProfileOrderComponent
+        component: ProfileOrderComponent,
+        canActivate: [isAuthGuard]
       }
     ]
   },

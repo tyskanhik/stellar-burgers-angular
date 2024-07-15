@@ -16,7 +16,7 @@
     </div>
     <div class="user" (click)="userNavigate()" >
         <img src="../../assets/user.svg" alt="Пользовалель">
-        <a *ngIf="!User?.email">Личный кабинет</a>
-        <a *ngIf="!!User?.email"> {{User?.name}} </a>
+        <a *ngIf="!User?.isLoget">Личный кабинет</a>
+        <a *ngIf="!!User?.isLoget"> {{User?.name}} </a>
     </div>
 </nav>

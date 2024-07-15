@@ -25,6 +25,12 @@ export type ApiUserToken = ApiUser & {
     refreshToken: string;
 }
 
+export type RegisterUser = {
+    email: string | null;
+    name: string | null;
+    password: string | null;
+};
+
 export type Ingredient = {
     _id: string;
     name: string;
@@ -66,7 +72,7 @@ export type Order = {
     updatedAt: string;
     number: number;
     ingredients: string[];
-  };
+};
 
 export type Orders = {
     orders: Order[];
