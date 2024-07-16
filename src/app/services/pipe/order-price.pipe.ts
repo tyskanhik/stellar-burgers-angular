@@ -7,14 +7,18 @@ import { Ingredient } from '../types/types';
 })
 export class OrderPricePipe implements PipeTransform {
 
-  transform(value: (Ingredient| undefined)[], ...args: unknown[]): number {
+  transform(value: (Ingredient | undefined)[], ...args: unknown[]): number {
     let total = 0;
+    let bunId: string | null = null
 
     value.map(ing => {
-      if(ing?.type === 'bun' && !!ing){
-        total += ing.price * 2;
+      if (ing?.type === 'bun' && !!ing) {
+        if (ing._id !== bunId) {
+          bunId = ing._id;
+          total += ing.price * 2;
+        }
       }
-      if(!!ing && ing.type !== 'bun') {
+      if (!!ing && ing.type !== 'bun') {
         total += ing.price;
       }
     })

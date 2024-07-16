@@ -41,6 +41,10 @@ export class ApiService {
         })
     }
 
+    public getOrders(): Observable<Orders> {
+        return this.http.get<Orders>(`${this.apiUrl}/orders/all`);
+    }
+
     public updateUserApi(user: Partial<RegisterUser>): Observable<ApiUserToken> {
         return this.http.patch<ApiUserToken>(`${this.apiUrl}/auth/user`, user, {
             headers: {
