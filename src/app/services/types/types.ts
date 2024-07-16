@@ -74,6 +74,16 @@ export type Order = {
     ingredients: string[];
 };
 
+export type UpdateOrder = {
+    _id: string;
+    status: string;
+    name: string;
+    createdAt: string;
+    updatedAt: string;
+    number: number;
+    ingredients: (Ingredient | undefined)[];
+};
+
 export type Orders = {
     orders: Order[];
     total: number;

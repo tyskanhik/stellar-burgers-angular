@@ -1,8 +1,8 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, retry } from 'rxjs';
-import { ApiIngredients, ApiUser, ApiUserToken, LoginData, Orders, RefreshResponse, RegisterUser } from '../types/types';
+import { Observable } from 'rxjs';
+import { ApiIngredients, ApiUser, ApiUserToken, Ingredient, LoginData, Order, Orders, RefreshResponse, RegisterUser, UpdateOrder } from '../types/types';
 import { CookieService } from '../cookie.services';
 
 @Injectable({
@@ -10,7 +10,9 @@ import { CookieService } from '../cookie.services';
 })
 
 export class ApiService {
-    private readonly apiUrl = 'https://norma.nomoreparties.space/api'
+    private readonly apiUrl = 'https://norma.nomoreparties.space/api';
+    private ingredients: Ingredient[] | null = null;
+
 
     constructor(private http: HttpClient, private cookie: CookieService) { }
 
@@ -58,4 +60,36 @@ export class ApiService {
             }
         })
     }
+
+    loadIngredients(): Promise<Ingredient[]> {
+        return new Promise((resolve, reject) => {
+            if (this.ingredients) {
+                resolve(this.ingredients);
+            } else {
+                this.http.get<ApiIngredients>(`${this.apiUrl}/ingredients`).subscribe(ingredients => {
+                    this.ingredients = ingredients.data;
+                    resolve(ingredients.data);
+                }, error => {
+                    reject(error);
+                });
+            }
+        });
+    }
+
+    async processOrders(orders: Order[]): Promise<UpdateOrder[] | null> {
+        try {
+            const ingredients = await this.loadIngredients();
+
+            return orders.map(order => {
+                const updatedIngredients = order.ingredients.map(ingredientId =>
+                    ingredients.find(ingredient => ingredient._id === ingredientId)
+                );
+                return { ...order, ingredients: updatedIngredients };
+            });
+        } catch (error) {
+            console.error('Ошибка при загрузке ингредиентов:', error);
+            return null;
+        }
+    }
+
 }

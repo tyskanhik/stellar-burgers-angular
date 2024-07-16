@@ -30,7 +30,7 @@ import { ProfileFormComponent } from './user/profile/profile-form/profile-form.c
     ProfileComponent,
     TotalPricePipe,
     ProfileOrderComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,6 @@ interface CookieOptions {
     providedIn: "root"
 })
 
-
 export class CookieService {
 
     public setCookie(name: string, value: string, option?: CookieOptions): void {
