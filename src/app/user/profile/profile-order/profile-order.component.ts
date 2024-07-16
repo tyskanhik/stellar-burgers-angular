@@ -10,7 +10,6 @@ import { Ingredient, Order, UpdateOrder } from 'src/app/services/types/types';
   styleUrls: ['./profile-order.component.scss']
 })
 export class ProfileOrderComponent implements OnInit {
-  protected isOrders: boolean = false;
   protected updateOrders: UpdateOrder[] | null = [];
 
   constructor(
@@ -23,7 +22,6 @@ export class ProfileOrderComponent implements OnInit {
     this._apiServices.getOrderUser(this.cookie.getCookie('accessToken')).subscribe({
       next: (data) => {
         this._storeservices.setOrderUser(data.orders),
-        this.isOrders = true,
         this._apiServices.processOrders(data.orders).
           then(res => {
             this.updateOrders = res;

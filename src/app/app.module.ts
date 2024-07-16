@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConstructorComponent } from './constructor/constructor.component';
-import { UserComponent } from './user/user.component';
 import { HeaderComponent } from './header/header.component';
 import { FeedComponent } from './feed/feed.component';
 import { IngredientsComponent } from './constructor/ingredients/ingredients.component';
@@ -23,7 +21,6 @@ import { RegisterComponent } from './user/register/register.component';
   declarations: [
     AppComponent,
     ConstructorComponent,
-    UserComponent,
     HeaderComponent,
     FeedComponent,
     IngredientsComponent,

@@ -24,6 +24,14 @@ export class ApiService {
         return this.http.post<ApiUserToken>(`${this.apiUrl}/auth/login`, user)
     }
 
+    public registerUser(user: Partial<RegisterUser>): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/auth/register`, user, {
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+    }
+
     public getUserApi(): Observable<ApiUser> {
         return this.http.get<ApiUser>(`${this.apiUrl}/auth/user`, {
             headers: {

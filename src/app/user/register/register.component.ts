@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
   selector: 'app-register',
@@ -8,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
 
+  constructor(private api: ApiService, private router: Router) {}
 
   public formRegister = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -16,6 +19,16 @@ export class RegisterComponent {
   })
 
   public register() {
-    console.log(this.formRegister.value);
+    if(this.formRegister.valid) {
+      this.api.registerUser(this.formRegister.value).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      })
+    }
   }
 }

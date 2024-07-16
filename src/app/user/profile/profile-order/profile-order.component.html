@@ -1,5 +1,5 @@
 <div class="container">
-    <p *ngIf="!isOrders">Скоро здесь появятся ваши заказы</p>
+    <p *ngIf="!this.updateOrders?.length">Скоро здесь появятся ваши заказы</p>
     <a *ngFor="let order of updateOrders" class="item">
         <div class="item-number">
             <span class="number">#{{order.number}}</span>
