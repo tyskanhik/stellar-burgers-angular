@@ -3,6 +3,7 @@
 .constructor {
     display: grid;
     gap: 20px;
+    position: relative;
 
     .ingridient {
         padding: 16px 24px;
@@ -148,5 +149,19 @@
             font-weight: normal;
             padding: 20px 40px;
         }
+    }
+
+    .preloader {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: -50%;
+        width: 300px;
+        height: 300px;
+        background-color: #2f2f37e0;
+        border-radius: 20%;
+        transform: translateX(50%)
     }
 }

@@ -74,6 +74,9 @@
             <p>{{burgerConstrucor | totalPrice}}</p>
             <img src="../../../assets/money.svg">
         </div>
-        <button>Оформить заказ</button>
+        <button (click)="submit()">Оформить заказ</button>
+    </div>
+    <div class="preloader" *ngIf="loading">
+        Отправляем заказ...
     </div>
 </div>

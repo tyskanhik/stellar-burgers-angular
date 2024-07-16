@@ -45,6 +45,18 @@ export class ApiService {
         return this.http.get<Orders>(`${this.apiUrl}/orders/all`);
     }
 
+    public orderBurger(data: string[]): Observable<any> {
+        const order = JSON.stringify({
+            ingredients: data
+        })
+        return this.http.post<any>(`${this.apiUrl}/orders`, order, {
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                authorization: this.cookie.getCookie('accessToken')
+            }
+        })
+    }
+
     public updateUserApi(user: Partial<RegisterUser>): Observable<ApiUserToken> {
         return this.http.patch<ApiUserToken>(`${this.apiUrl}/auth/user`, user, {
             headers: {

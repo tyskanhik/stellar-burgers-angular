@@ -44,9 +44,9 @@ export class StoreService {
 
     setConstructorState(ingredient: Ingredient): void {
         const id = self.crypto.randomUUID()
-        const newIngredient = {...ingredient, id}
-        
-        if(ingredient.type === 'bun') {
+        const newIngredient = { ...ingredient, id }
+
+        if (ingredient.type === 'bun') {
             const currentState = this.constructorSubject.getValue();
             currentState.bun = newIngredient;
             this.constructorSubject.next(currentState);
@@ -57,6 +57,10 @@ export class StoreService {
         }
     }
 
+    resetConstructor(): void {
+        this.constructorSubject.next(initailStateBurgerConstructor)
+    }
+
     getConstructorState(): BurgerConstructorState {
         return this.constructorSubject.getValue();
     }
@@ -64,7 +68,7 @@ export class StoreService {
     setOrderUser(order: any): void {
         this.orderUserSubject.next(order);
     }
-    
+
     getOrderUser(): any {
         return this.orderUserSubject.getValue();
     }
