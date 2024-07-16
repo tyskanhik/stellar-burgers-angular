@@ -72,5 +72,9 @@ export class BurgerConstructorComponent implements OnInit {
         complete: () => this._sotrService.resetConstructor()
       })
     }
+
+    if(!this.cookie.getCookie('accessToken')) {
+      this.router.navigate(['/login']);
+    }
   }
 }
