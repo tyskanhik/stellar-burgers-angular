@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+.feed {
+    margin-top: 30px;
+
+    h2 {
+        padding: 24px;
+        font-size: 36px;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+
+    &-container {
+        display: flex;
+        gap: 50px;
+    }
+
+    .container {
+        max-width: 600px;
+        display: grid;
+        gap: 20px;
+
+        .item {
+            background-color: #1c1c21;
+            border-radius: 40px;
+            cursor: pointer;
+            padding: 24px;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: .86;
+            display: grid;
+            gap: 24px;
+
+
+            &-number {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .number {
+                    font-family: "Iceland", sans-serif;
+                }
+
+                .date {
+                    color: #8585ad;
+                    font-size: 18px;
+                }
+            }
+
+            &-title {
+                text-align: left;
+                font-weight: bold;
+                line-height: 1.25;
+            }
+
+            &-ingredients {
+                display: flex;
+                justify-content: space-between;
+
+
+                ul {
+                    position: relative;
+                    display: flex;
+                    gap: 3px;
+                    padding: 0;
+                    margin: 0;
+
+                    span {
+                        position: absolute;
+                        top: -5px;
+                        left: 40px;
+                        z-index: 10;
+                        color: #dd99fc;
+                    }
+
+                    li {
+                        width: 62px;
+                        height: 62px;
+                        border-radius: 50%;
+                        border: #801ab3 solid 2px;
+                        background-color: #1c1c21;
+                        position: relative;
+                        list-style: none;
+                        padding: 0;
+
+                        img {
+                            position: relative;
+                            right: 25px;
+                            width: 112px;
+                            height: 56px;
+                        }
+                    }
+                }
+
+                ul li:first-of-type {
+                    margin-right: 10px;
+                }
+            }
+
+            &-price {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                font-family: "Iceland", sans-serif;
+                font-size: 28px;
+            }
+
+        }
+    }
+
+    &-section {
+        display: grid;
+        gap: 30px;
+        width: 580px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.25;
+
+
+        h3 {
+            margin: 20px 0 10px;
+        }
+
+        .section-status {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+
+
+            ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0;
+
+                li {
+                    color: rgb(0, 204, 204);
+                    font-family: 'Iceland';
+                    font-weight: normal;
+                    font-size: 28px;
+                    line-height: .86;
+                    list-style-type: none;
+                }
+            }
+        }
+
+        &-order {
+            p {
+                font-family: 'Iceland';
+                font-weight: normal;
+                font-size: 144px;
+                line-height: .83;
+            }
+        }
+    }
+
+
+}

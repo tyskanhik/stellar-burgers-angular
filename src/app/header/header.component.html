@@ -1,0 +1,22 @@
+<nav>
+    <div class="constructor">
+        <div routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]='{ exact: true }'>
+            <img src="../../assets/constructor.svg" alt="Конструктор">
+            <a>Конструктор</a>
+        </div>
+        <div routerLink="/feed" routerLinkActive="active">
+            <img src="../../assets/orderFeed.svg" alt="Лента новостей">
+            <a>Лента новостей</a>
+        </div>
+    </div>
+    <div class="logo">
+        <a class="logo__image" routerLink="/">
+            <img src="../../assets/logo.svg" alt="Логотип">
+        </a>
+    </div>
+    <div class="user" (click)="userNavigate()" >
+        <img src="../../assets/user.svg" alt="Пользовалель">
+        <a *ngIf="!User?.isLoget">Личный кабинет</a>
+        <a *ngIf="!!User?.isLoget"> {{User?.name}} </a>
+    </div>
+</nav>

@@ -1,0 +1,105 @@
+.login {
+    margin: auto;
+    width: 480px;
+    display: grid;
+    align-items: center;
+    gap: 24px;
+    margin-top: 120px;
+
+    &-title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 1.25;
+        text-align: center;
+    }
+
+    &__form {
+        display: grid;
+        gap: 24px;
+        justify-items: center;
+        margin-bottom: 50px;
+
+        &-input {
+            width: 100%;
+            min-height: 64px;
+            text-align: right;
+            display: flex;
+            cursor: text;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            background-color: #2f2f37;
+            border: 2px solid #2f2f37;
+            border-radius: 40px;
+            position: relative;
+            padding: 0 24px;
+
+            input {
+                display: block;
+                border: none;
+                outline: none;
+                width: 100%;
+                color: white;
+                margin-top: 16px;
+                font-size: 16px;
+                line-height: 1.5;
+                font-weight: normal;
+                box-shadow: inherit;
+                -webkit-box-shadow: inset 0 0 0 50px #2f2f37;
+                -webkit-text-fill-color: white;
+            }
+            
+            input:focus {
+                box-shadow: inherit;
+                -webkit-box-shadow: inset 0 0 0 50px #2f2f37;
+                -webkit-text-fill-color: white;
+            }
+
+            label {
+                display: block;
+                position: absolute;
+                top: 9px;
+                text-align: left;
+                color: #8585AD;
+                padding-left: 10px;
+            }
+        }
+
+        button {
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: normal;
+            padding: 16px 40px;
+            color: white;
+            background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+            border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: 64px;
+        }
+
+        button:disabled {
+            cursor: default;
+            background: linear-gradient(63.18deg, #9760b0 0%, #888383 100%);
+        }
+
+        small {
+            position: absolute;
+            top: 65px;
+            color: red;
+        }
+    }
+
+    div {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: normal;
+        color: #8585ad;
+        text-align: center;
+
+        a {
+            color: #4c4cff;
+            text-decoration: none;
+        }
+    }
+}

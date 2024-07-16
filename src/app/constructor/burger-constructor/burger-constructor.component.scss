@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+.constructor {
+    display: grid;
+    gap: 20px;
+    position: relative;
+
+    .ingridient {
+        padding: 16px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 88px 88px 88px 88px;
+        background: #2f2f37;
+        min-height: 80px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #f2f2f3;
+        margin-left: 44px;
+
+        &-components {
+            display: flex;
+            align-items: center;
+            min-width: 480px;
+
+            &-image {
+                width: 80px;
+                height: 40px;
+                margin-right: 20px;
+            }
+
+            &-text {
+                margin-right: 20px;
+                display: inline-flex;
+                align-items: center;
+                line-height: 24px;
+                text-align: left;
+                flex-grow: 1;
+            }
+
+            &-price {
+                display: inline-flex;
+                gap: 5px;
+                align-items: center;
+                justify-content: flex-end;
+                text-align: right;
+                font-family: 'Iceland';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 28px;
+                line-height: 24px;
+            }
+
+            &-locked {
+                margin-left: 20px;
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+            }
+
+        }
+    }
+
+    .bun-top {
+        border-radius: 88px 88px 40px 40px;
+    }
+
+    .bun-bottom {
+        border-radius: 40px 40px 88px 88px;
+    }
+
+    .main {
+        overflow-y: scroll;
+        scrollbar-color: #2F2F37 #8585AD;
+        display: grid;
+        gap: 20px;
+        padding-right: 10px;
+
+        &-ingredient {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            list-style-type: none;
+
+
+            &-component {
+                margin-left: 0;
+            }
+        }
+
+        .move_button {
+            display: grid;
+            align-items: center;
+            width: fit-content;
+
+            button {
+                max-height: 24px;
+                padding: 0;
+                margin: 0;
+                background: none;
+                outline: none;
+                border: none;
+                cursor: pointer;
+
+
+                svg {
+                    fill: rgb(255, 255, 255);
+                }
+
+                &:disabled {
+                    cursor: default;
+
+                    svg {
+                        fill: rgb(58, 58, 85);
+                    }
+                }
+            }
+        }
+    }
+
+    .main-ingridient {
+        margin: 0;
+    }
+
+    .order {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 40px;
+
+        &-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "Iceland", sans-serif;
+            font-size: 48px;
+            line-height: 36px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: 64px;
+            background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+            color: white;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: normal;
+            padding: 20px 40px;
+        }
+    }
+
+    .preloader {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: -50%;
+        width: 300px;
+        height: 300px;
+        background-color: #2f2f37e0;
+        border-radius: 20%;
+        transform: translateX(50%)
+    }
+}

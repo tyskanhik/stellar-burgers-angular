@@ -1,0 +1,56 @@
+<div class="feed">
+    <h2>Лента заказов</h2>
+    <div class="feed-container">
+        <div class="container">
+            <a *ngFor="let order of updateOrders" class="item">
+                <div class="item-number">
+                    <span class="number">#{{order.number}}</span>
+                    <span class="date">{{order.createdAt | date: 'd/MM/y, H:m'}}</span>
+                </div>
+                <h4 class="item-title">{{order.name}}</h4>
+                <div class="item-ingredients">
+                    <ul>
+                        <ng-container *ngFor="let ingredient of order.ingredients">
+                            <span>x2</span>
+                            <li>
+                                <img src={{ingredient?.image}} alt="Изображение ингредиента">
+                            </li>
+                        </ng-container>
+                    </ul>
+                    <div class="item-price">
+                        <span>{{order.ingredients | orderPrice}}</span>
+                        <img src="../../../../assets/money.svg">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div>
+            <section class="feed-section">
+                <div class="section-status">
+                    <div class="status-done">
+                        <h3>Готовы:</h3>
+                        <ul>
+                            <li *ngFor="let order of readyOrders">
+                                {{order}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>В работе:</h3>
+                        <ul>
+                            <li *ngFor="let order of pendingOrders">
+                                {{order}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feed-section-order">
+                    <h3>Выполнено за все время:</h3>
+                    <p>{{ordersAll?.total}}</p>
+                    <h3>Выполнено за сегодня:</h3>
+                    <p>{{ordersAll?.totalToday}}</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

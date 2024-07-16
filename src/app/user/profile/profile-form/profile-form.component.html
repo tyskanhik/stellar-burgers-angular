@@ -1,0 +1,29 @@
+<div class="container">
+    <form [formGroup]="formProfile" class="container__form" (keyup)="input($event)" (submit)="handleSubmit()">
+        <div class="form-name form">
+            <label for="name">Имя</label>
+            <input id="name" type="text" formControlName="name" >
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-email form">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" formControlName="email">
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-password form">
+            <label for="password">Пароль</label>
+            <input id="password" type="password" formControlName="password">
+            <div class="image">
+                <img src="../../../../assets/edit.svg" alt="Редактировать">
+            </div>
+        </div>
+        <div class="form-button" *ngIf="isUser">
+            <button type="reset" class="form-button-reset button" (click)="reset()">Отменить</button>
+            <button type="submit" class="form-button-submit button">Сохранить</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+<nav>
+    <ul>
+        <li><a href="#bun">Булки</a></li>
+        <li><a href="#main">Начинки</a></li>
+        <li><a href="#sauce">Соусы</a></li>
+    </ul>
+</nav>
+
+<div class="ingredients">
+    <h3 id="bun">Булки</h3>
+    <ul>
+        <li *ngFor="let bun of buns">
+            <a>
+                <img src={{bun.image}} alt="Картинка ингредиента">
+                <div>
+                    <p>{{ bun.price }}</p>
+                    <img src="../../../assets/money.svg">
+                </div>
+                <p>{{ bun.name }}</p>
+            </a>
+            <button (click)="handleIngredientClick(bun)">
+                <img src="../../../assets/add.svg" alt="Добавить">
+                Добавить
+            </button>
+        </li>
+    </ul>
+    <h3 id="main">Начинки</h3>
+    <ul>
+        <li *ngFor="let main of mains">
+            <a>
+                <img src={{main.image}} alt="Картинка ингредиента">
+                <div>
+                    <p>{{ main.price }}</p>
+                    <img src="../../../assets/money.svg">
+                </div>
+                <p>{{ main.name }}</p>
+            </a>
+            <button  (click)="handleIngredientClick(main)">
+                <img src="../../../assets/add.svg" alt="Добавить">
+                Добавить
+            </button>
+        </li>
+    </ul>
+    <h3 id="sauce">Соусы</h3>
+    <ul>
+        <li *ngFor="let sauce of sauces">
+            <a>
+                <img src={{sauce.image}} alt="Картинка ингредиента">
+                <div>
+                    <p>{{ sauce.price }}</p>
+                    <img src="../../../assets/money.svg">
+                </div>
+                <p>{{ sauce.name }}</p>
+            </a>
+            <button (click)="handleIngredientClick(sauce)">
+                <img src="../../../assets/add.svg" alt="Добавить">
+                Добавить
+            </button>
+        </li>
+    </ul>
+</div>

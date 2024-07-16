@@ -1,0 +1,38 @@
+<div class="register">
+    <h3 class="register-title">Регистрация</h3>
+    <form name="login" class="register__form" (submit)="register()" [formGroup]="formRegister">
+        <div class="register__form-name register__form-input">
+            <label for="mane">Имя:</label>
+            <input type="text" id="mane" name="name" required formControlName="name">
+            <small *ngIf="
+            formRegister.controls.name.touched &&
+            formRegister.controls.name.errors?.['required']
+            ">Это поле обязательно для заполнения</small>
+        </div>
+        <div class="register__form-email register__form-input">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required autocapitalize="email" formControlName="email">
+            <small *ngIf="
+            formRegister.controls.email.touched &&
+            formRegister.controls.email.errors?.['required']
+            ">Это поле обязательно для заполнения</small>
+            <small *ngIf="
+            formRegister.controls.email.touched &&
+            formRegister.controls.email.errors?.['email']
+            ">Пожалуйста, введите корректный email-адрес</small>
+        </div>
+        <div class="register__form-password register__form-input">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required autocapitalize="password" formControlName="password">
+            <small *ngIf="
+            formRegister.controls.password.touched &&
+            formRegister.controls.password.errors?.['required']
+            ">Это поле обязательно для заполнения</small>
+        </div>
+        <button type="submit" [disabled]="!formRegister.valid">Зарегистрироваться</button>
+    </form>
+    <div>
+        Уже зарегистрированы?
+        <a routerLink="/login">Войти</a>
+    </div>
+</div>
