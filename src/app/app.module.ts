@@ -14,6 +14,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TotalPricePipe } from './services/pipe/total-price.pipe';
+import { OrderPricePipe } from './services/pipe/order-price.pipe';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
 
@@ -29,6 +30,7 @@ import { ProfileFormComponent } from './user/profile/profile-form/profile-form.c
     LoginComponent,
     ProfileComponent,
     TotalPricePipe,
+    OrderPricePipe,
     ProfileOrderComponent,
     ProfileFormComponent,
   ],

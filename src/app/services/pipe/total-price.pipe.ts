@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { BurgerConstructorState } from '../types/types';
+import { BurgerConstructorState, Ingredient } from '../types/types';
 
 @Pipe({
   name: 'totalPrice',

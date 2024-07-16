@@ -3,19 +3,19 @@
     <a *ngFor="let order of updateOrders" class="item">
         <div class="item-number">
             <span class="number">#{{order.number}}</span>
-            <span class="date">{{order.createdAt | date: 'MM/d/y, H:m'}}</span>
+            <span class="date">{{order.createdAt | date: 'd/MM/y, H:m'}}</span>
         </div>
         <h4 class="item-title">{{order.name}}</h4>
         <div class="item-ingredients">
             <ul>
-                <ng-container *ngFor="let image of order.ingredients">
+                <ng-container *ngFor="let ingredient of order.ingredients">
                     <li>
-                        <img src={{image?.image}} alt="Изображение ингредиента">
+                        <img src={{ingredient?.image}} alt="Изображение ингредиента">
                     </li>
                 </ng-container>
             </ul>
             <div class="item-price">
-                <span>123</span>
+                <span>{{order.ingredients | orderPrice}}</span>
                 <img src="../../../../assets/money.svg">
             </div>
         </div>

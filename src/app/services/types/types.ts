@@ -31,10 +31,12 @@ export type RegisterUser = {
     password: string | null;
 };
 
+export type TabMode = 'bun' | 'sauce' | 'main';
+
 export type Ingredient = {
     _id: string;
     name: string;
-    type: string;
+    type: TabMode;
     proteins: number;
     fat: number;
     carbohydrates: number;
