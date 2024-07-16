@@ -58,7 +58,10 @@ export class StoreService {
     }
 
     resetConstructor(): void {
-        this.constructorSubject.next(initailStateBurgerConstructor)
+        this.constructorSubject.next({
+            bun: null,
+            ingredients: []
+        })
     }
 
     getConstructorState(): BurgerConstructorState {
