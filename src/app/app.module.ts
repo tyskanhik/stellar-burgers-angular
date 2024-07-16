@@ -17,6 +17,7 @@ import { TotalPricePipe } from './services/pipe/total-price.pipe';
 import { OrderPricePipe } from './services/pipe/order-price.pipe';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
+import { RegisterComponent } from './user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProfileFormComponent } from './user/profile/profile-form/profile-form.c
     OrderPricePipe,
     ProfileOrderComponent,
     ProfileFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,10 +8,12 @@ import { isAuthGuard } from './guards/is-auth.guard';
 import { isNotAuthGuard } from './guards/is-not-auth.guard';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
+import { RegisterComponent } from './user/register/register.component';
 
 const routes: Routes = [
   { path: '', component: ConstructorComponent},
   { path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {
     path: 'profile', component: ProfileComponent,
     children: [
