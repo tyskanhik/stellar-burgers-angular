@@ -9,7 +9,7 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-
+  protected text: string = 'info profile'
   constructor(private _storeservices: StoreService, private router: Router, private cookie: CookieService) { }
 
   logaut() {
@@ -17,5 +17,9 @@ export class ProfileComponent {
     this.cookie.deleteCookie('accessToken');
     localStorage.removeItem('refreshToken');
     this.router.navigate(['/login']);
+  }
+
+  click(str: string) {
+    this.text = str
   }
 }

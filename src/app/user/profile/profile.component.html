@@ -1,11 +1,14 @@
 <div class="profile">
-    <nav>
-        <ul>
-            <li routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]='{ exact: true }'>Профиль</li>
-            <li routerLink="order" routerLinkActive="active">История заказов</li>
-            <li (click)="logaut()">Выход</li>
-        </ul>
-    </nav>
+    <div>
+        <nav>
+            <ul>
+                <li  routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]='{ exact: true }' (click)="click('info profile')">Профиль</li>
+                <li routerLink="order" routerLinkActive="active" (click)="click('info_order')">История заказов</li>
+                <li (click)="logaut()">Выход</li>
+            </ul>
+        </nav>
+        <p style="width: 320px; margin-left: 40px; margin-top: 50px;"> {{text}} </p>
+    </div>
     <div>
         <router-outlet></router-outlet>
     </div>

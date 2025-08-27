@@ -4,8 +4,6 @@ import { ConstructorComponent } from './constructor/constructor.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { FeedComponent } from './feed/feed.component';
-import { isAuthGuard } from './guards/is-auth.guard';
-import { isNotAuthGuard } from './guards/is-not-auth.guard';
 import { ProfileOrderComponent } from './user/profile/profile-order/profile-order.component';
 import { ProfileFormComponent } from './user/profile/profile-form/profile-form.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -24,7 +22,6 @@ const routes: Routes = [
       {
         path: 'order',
         component: ProfileOrderComponent,
-        canActivate: [isAuthGuard]
       }
     ]
   },
